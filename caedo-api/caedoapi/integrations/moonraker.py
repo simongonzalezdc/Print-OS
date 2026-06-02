@@ -2,6 +2,7 @@ import httpx
 import logging
 import json
 import asyncio
+import inspect
 from typing import Dict, Any, Optional
 from .base import PrinterIntegration
 
@@ -32,7 +33,10 @@ class MoonrakerIntegration(PrinterIntegration):
                 )
                 
                 if response.status_code == 200:
-                    data = response.json().get("result", {}).get("status", {})
+                    response_data = response.json()
+                    if inspect.isawaitable(response_data):
+                        response_data = await response_data
+                    data = response_data.get("result", {}).get("status", {})
                     state = data.get("print_stats", {}).get("state", "Unknown")
                     temps = {
                         "tool0": data.get("extruder", {}).get("temperature", 0),

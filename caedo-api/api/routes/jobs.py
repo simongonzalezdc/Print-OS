@@ -40,7 +40,7 @@ async def get_job(job_id: int):
 async def create_job(job: JobCreate):
     try:
         # Map weight_g to grams_estimated and estimated_minutes to minutes_estimated if needed
-        data = job.dict()
+        data = job.model_dump()
         if 'weight_g' in data and data['weight_g'] is not None:
             data['grams_estimated'] = data.pop('weight_g')
         if 'estimated_minutes' in data and data['estimated_minutes'] is not None:

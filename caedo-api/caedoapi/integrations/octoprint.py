@@ -1,5 +1,6 @@
 import httpx
 import logging
+import inspect
 from typing import Dict, Any, Optional
 from .base import PrinterIntegration
 
@@ -21,6 +22,8 @@ class OctoPrintIntegration(PrinterIntegration):
                 
                 if response.status_code == 200:
                     data = response.json()
+                    if inspect.isawaitable(data):
+                        data = await data
                     # Simplify OctoPrint state
                     state = data.get("state", {}).get("text", "Unknown")
                     temps = {

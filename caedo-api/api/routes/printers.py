@@ -110,7 +110,7 @@ async def get_printer(printer_id: int):
 @router.post("/")
 async def create_printer(printer: PrinterCreate):
     try:
-        new_printer_id = PrinterRepository.create(printer.dict())
+        new_printer_id = PrinterRepository.create(printer.model_dump())
         return {"id": new_printer_id, "message": "Printer created"}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -130,4 +130,3 @@ async def delete_printer(printer_id: int):
         return {"message": "Printer deleted"}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
-

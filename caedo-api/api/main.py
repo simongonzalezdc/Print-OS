@@ -35,6 +35,17 @@ app.include_router(system.router, prefix="/api/v1/system", tags=["system"])
 app.include_router(inventory.router, prefix="/api/v1/inventory", tags=["inventory"])
 app.include_router(ws.router, tags=["websocket"])
 
+# Backward-compatible aliases for older local clients and tests.
+app.include_router(business.router, prefix="/api/business", tags=["business"])
+app.include_router(printers.router, prefix="/api/printers", tags=["printers"])
+app.include_router(jobs.router, prefix="/api/jobs", tags=["jobs"])
+app.include_router(ai.router, prefix="/api/ai", tags=["ai"])
+app.include_router(ai_memory.router, prefix="/api/ai/memory", tags=["ai-memory"])
+app.include_router(projects.router, prefix="/api/projects", tags=["projects"])
+app.include_router(queue.router, prefix="/api/queue", tags=["queue"])
+app.include_router(system.router, prefix="/api/system", tags=["system"])
+app.include_router(inventory.router, prefix="/api/inventory", tags=["inventory"])
+
 @app.get("/")
 async def root():
     return {"message": "CAEDO API is online", "version": "1.0.0"}
@@ -45,4 +56,3 @@ async def health():
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
-

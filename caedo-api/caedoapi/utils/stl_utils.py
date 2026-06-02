@@ -157,3 +157,9 @@ def estimate_grams(volume_mm3, material="PLA"):
     # volume in cm3 = mm3 / 1000
     # weight = volume_cm3 * density
     return (volume_mm3 / 1000.0) * density
+
+def calculate_stl_volume(file_path):
+    """
+    Return the STL volume in cubic millimeters.
+    """
+    return get_stl_stats(file_path)["volume"]

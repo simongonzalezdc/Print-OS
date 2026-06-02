@@ -5,7 +5,7 @@ import shutil
 import zipfile
 import datetime
 import tempfile
-from ..db import DB_PATH, init_db
+from caedoapi.db import DB_PATH, init_db
 
 router = APIRouter()
 

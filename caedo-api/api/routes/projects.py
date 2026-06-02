@@ -5,7 +5,12 @@ import time
 import uuid
 import os
 import shutil
+import tempfile
 from caedoapi.utils.stl_utils import get_stl_stats, get_3mf_stats
+from caedoapi.ai.client import AIClient
+
+router = APIRouter()
+ai_client = AIClient()
 
 @router.post("/import-stl")
 async def import_stl(file: UploadFile = File(...)):
@@ -137,4 +142,3 @@ async def restore_version(project_id: str, version: str):
         "restored_to": version,
         "timestamp": int(time.time() * 1000)
     }
-
