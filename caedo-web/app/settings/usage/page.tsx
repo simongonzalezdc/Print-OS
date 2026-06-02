@@ -77,6 +77,7 @@ export default function AIUsagePage() {
     { label: 'Estimated Cost', value: summary?.total_cost_usd ? `$${summary.total_cost_usd.toFixed(4)}` : '$0.0000', Icon: DollarSign },
     { label: 'Avg Cost / Call', value: summary?.total_calls ? `$${(summary.total_cost_usd / summary.total_calls).toFixed(5)}` : '$0.00000', Icon: Zap },
   ];
+  const featureChartData: Array<Record<string, string | number>> = featureData.map((item) => ({ ...item }));
 
   return (
     <div className="flex flex-col gap-6 p-6 min-h-screen bg-[#050505] text-foreground">
@@ -122,59 +123,71 @@ export default function AIUsagePage() {
         {/* Cost Over Time */}
         <CyberCard className="lg:col-span-2" title="COST_TRENDS_30D" subtitle="Daily AI expenditure in USD">
           <div className="h-[300px] w-full mt-4">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={dailyData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#222" />
-                <XAxis 
-                  dataKey="date" 
-                  stroke="#666" 
-                  fontSize={10} 
-                  tickFormatter={(val) => val.split('-').slice(1).join('/')}
-                />
-                <YAxis stroke="#666" fontSize={10} />
-                <Tooltip 
-                  contentStyle={{ backgroundColor: '#0a0a0a', border: '1px solid #333', fontSize: '10px' }}
-                  itemStyle={{ color: '#00FFCC' }}
-                />
-                <Legend iconType="circle" wrapperStyle={{ fontSize: '10px', paddingTop: '10px' }} />
-                <Line 
-                  type="monotone" 
-                  dataKey="cost" 
-                  name="Cost ($)" 
-                  stroke="#00FFCC" 
-                  strokeWidth={2} 
-                  dot={{ r: 3, fill: '#00FFCC' }}
-                  activeDot={{ r: 5, stroke: '#00FFCC', strokeWidth: 2, fill: '#050505' }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+            {dailyData.length > 0 ? (
+              <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={1}>
+                <LineChart data={dailyData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#222" />
+                  <XAxis
+                    dataKey="date"
+                    stroke="#666"
+                    fontSize={10}
+                    tickFormatter={(val) => val.split('-').slice(1).join('/')}
+                  />
+                  <YAxis stroke="#666" fontSize={10} />
+                  <Tooltip
+                    contentStyle={{ backgroundColor: '#0a0a0a', border: '1px solid #333', fontSize: '10px' }}
+                    itemStyle={{ color: '#00FFCC' }}
+                  />
+                  <Legend iconType="circle" wrapperStyle={{ fontSize: '10px', paddingTop: '10px' }} />
+                  <Line
+                    type="monotone"
+                    dataKey="cost"
+                    name="Cost ($)"
+                    stroke="#00FFCC"
+                    strokeWidth={2}
+                    dot={{ r: 3, fill: '#00FFCC' }}
+                    activeDot={{ r: 5, stroke: '#00FFCC', strokeWidth: 2, fill: '#050505' }}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="h-full border border-dashed border-border/40 flex items-center justify-center text-xs uppercase tracking-widest opacity-40">
+                No cost trend telemetry available
+              </div>
+            )}
           </div>
         </CyberCard>
 
         {/* Feature Distribution */}
         <CyberCard title="FEATURE_DISTRIBUTION" subtitle="Cost by AI capability">
           <div className="h-[300px] w-full flex flex-col items-center">
-            <ResponsiveContainer width="100%" height={220}>
-              <PieChart>
-                <Pie
-                  data={featureData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={60}
-                  outerRadius={80}
-                  paddingAngle={5}
-                  dataKey="cost"
-                  nameKey="feature"
-                >
-                  {featureData.map((_, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip 
-                  contentStyle={{ backgroundColor: '#0a0a0a', border: '1px solid #333', fontSize: '10px' }}
-                />
-              </PieChart>
-            </ResponsiveContainer>
+            {featureChartData.length > 0 ? (
+              <ResponsiveContainer width="100%" height={220} minWidth={1} minHeight={1}>
+                <PieChart>
+                  <Pie
+                    data={featureChartData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={60}
+                    outerRadius={80}
+                    paddingAngle={5}
+                    dataKey="cost"
+                    nameKey="feature"
+                  >
+                    {featureChartData.map((_, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip
+                    contentStyle={{ backgroundColor: '#0a0a0a', border: '1px solid #333', fontSize: '10px' }}
+                  />
+                </PieChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="h-[220px] w-full border border-dashed border-border/40 flex items-center justify-center text-xs uppercase tracking-widest opacity-40">
+                No feature telemetry available
+              </div>
+            )}
             <div className="grid grid-cols-2 gap-x-4 gap-y-1 w-full px-4">
               {featureData.map((entry, index) => (
                 <div key={entry.feature} className="flex items-center gap-2">
@@ -233,4 +246,3 @@ export default function AIUsagePage() {
     </div>
   );
 }
-

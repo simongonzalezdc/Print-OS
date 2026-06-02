@@ -16,7 +16,7 @@ interface BatchJob {
   id: string;
   prompts: string[];
   status: 'pending' | 'processing' | 'completed' | 'failed';
-  results?: any[];
+  results?: Array<{ prompt: string }>;
 }
 
 export const BatchQueuePanel = () => {
@@ -86,7 +86,7 @@ export const BatchQueuePanel = () => {
       } else {
         toast.error('Failed to queue batch');
       }
-    } catch (error) {
+    } catch {
       toast.error('Network error');
     } finally {
       setIsSubmitting(false);
@@ -184,7 +184,7 @@ export const BatchQueuePanel = () => {
 
                   {job.status === 'completed' && job.results && (
                     <div className="mt-2 pt-2 border-t border-border/20 space-y-1">
-                      {job.results.map((res: any, i: number) => (
+                      {job.results.map((res, i: number) => (
                         <div key={i} className="flex items-center justify-between text-[10px] opacity-70 hover:opacity-100 transition-opacity">
                           <span className="truncate flex-1 font-bold">#{i+1}: {res.prompt}</span>
                           <span className="text-primary font-mono ml-2">LOAD_DATA</span>
@@ -206,4 +206,3 @@ export const BatchQueuePanel = () => {
     </div>
   );
 };
-

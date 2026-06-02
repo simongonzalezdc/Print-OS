@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useCallback, useRef } from 'react';
-import { Footprints, Upload, Activity, Ruler, Scissors, Loader2, CheckCircle2, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { Footprints, Upload, Activity, Ruler, Scissors, Loader2 } from 'lucide-react';
 import { useSceneStore } from '@/lib/scene/store';
 import { extractFeaturesFromScan, mapToStandardSize, FootFeatures, ShoeSize } from '@/lib/import/foot-scanner';
 import { SizeGrader } from '@/lib/analysis/size-grader';
@@ -15,7 +15,6 @@ interface FootScannerPanelProps {
 }
 
 export function FootScannerPanel({ onClose }: FootScannerPanelProps) {
-  const [scanning, setScanning] = useState(false);
   const [features, setFeatures] = useState<FootFeatures | null>(null);
   const [shoeSize, setShoeSize] = useState<ShoeSize | null>(null);
   const [step, setStep] = useState<'upload' | 'analysis' | 'result'>('upload');
@@ -23,7 +22,6 @@ export function FootScannerPanel({ onClose }: FootScannerPanelProps) {
   const addObject = useSceneStore((state) => state.addObject);
 
   const handleFileUpload = async (file: File) => {
-    setScanning(true);
     setStep('analysis');
     
     try {
@@ -42,8 +40,6 @@ export function FootScannerPanel({ onClose }: FootScannerPanelProps) {
       console.error('Scan error:', error);
       toast.error('Failed to analyze scan data');
       setStep('upload');
-    } finally {
-      setScanning(false);
     }
   };
 

@@ -21,7 +21,6 @@ import {
   parseStructuredResponse,
   isClarifyResponse,
   isDesignResponse,
-  StructuredAIResponse,
   DesignResponse,
   ClarifyResponse
 } from '@/lib/ai/structured-response';
@@ -467,6 +466,7 @@ export function AIPanel({ onToggle }: AIPanelProps) {
 
       // Check if this is a design response (has code) vs clarify response (no code)
       const isDesignResponse = structured && 'code' in structured;
+      const designSummary = isDesignResponse ? structured.summary : undefined;
       let jscadCode = isDesignResponse ? structured.code : null;
       if (!jscadCode) {
         jscadCode = extractJSCADCode(content);
@@ -510,20 +510,20 @@ export function AIPanel({ onToggle }: AIPanelProps) {
               objectId = existingObjectId;
 
               toast.success('Object updated!', {
-                description: structured?.summary || 'Design modified successfully.',
+                description: designSummary || 'Design modified successfully.',
               });
             } else {
               // No existing JSCAD code, create new object
               objectId = addObject(jscadCode, objectName);
               toast.success('Object created!', {
-                description: structured?.summary || 'JSCAD code executed and added to scene.',
+                description: designSummary || 'JSCAD code executed and added to scene.',
               });
             }
           } else {
             // No existing object, create new one
             objectId = addObject(jscadCode, objectName);
             toast.success('Object created!', {
-              description: structured?.summary || 'JSCAD code executed and added to scene.',
+              description: designSummary || 'JSCAD code executed and added to scene.',
             });
           }
 
@@ -612,7 +612,6 @@ export function AIPanel({ onToggle }: AIPanelProps) {
     try {
       // AI SDK v5 sendMessage - include images as experimental_attachments
       // Include full context with printer profile and user preferences in body
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const bodyWithImages: Record<string, unknown> = {
         ...fullContext,
         // Also include image data in body for server-side processing
@@ -1067,4 +1066,3 @@ export function AIPanel({ onToggle }: AIPanelProps) {
     </div>
   );
 }
-

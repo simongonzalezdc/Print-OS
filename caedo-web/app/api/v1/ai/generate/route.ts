@@ -343,8 +343,9 @@ export async function POST(request: NextRequest) {
             // Log usage to backend for cost tracking
             try {
               const backendUrl = process.env.BACKEND_API_URL || 'http://localhost:8000';
-              const promptTokens = (usage as any).promptTokens || 0;
-              const completionTokens = (usage as any).completionTokens || 0;
+              const usageStats = usage as { promptTokens?: number; completionTokens?: number };
+              const promptTokens = usageStats.promptTokens || 0;
+              const completionTokens = usageStats.completionTokens || 0;
               
               await fetch(`${backendUrl}/api/v1/ai/usage`, {
                 method: 'POST',

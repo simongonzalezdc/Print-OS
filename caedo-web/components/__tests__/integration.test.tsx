@@ -171,6 +171,7 @@ describe('Caedo 3D - End-to-End Integration', () => {
         resumeStream: vi.fn(),
         addToolResult: vi.fn(),
         addToolOutput: vi.fn(),
+        addToolApprovalResponse: vi.fn(),
         clearError: vi.fn(),
         error: undefined,
         id: 'test-chat',

@@ -57,9 +57,7 @@ const main = () => {
       // Update object with imported mesh data
       const updateObject = useSceneStore.getState().updateObject;
       updateObject(objectId, { 
-        meshData: processedMesh,
-        // Tag as imported mesh
-        notes: `Imported from ${file.name}`
+        meshData: processedMesh
       });
 
       toast.success(`Imported "${file.name}"`);
@@ -182,4 +180,3 @@ const main = () => {
     </div>
   );
 }
-

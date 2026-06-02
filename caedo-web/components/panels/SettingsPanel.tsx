@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Settings, Printer, Palette, User, Check, ChevronDown, Brain, Database } from 'lucide-react';
 import { AIMemoryTab } from './ai/AIMemoryTab';
 import { cn } from '@/lib/utils';
+import { toast } from 'sonner';
 import { 
   UserPreferences, 
   loadUserPreferences, 
@@ -474,4 +475,3 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
     </div>
   );
 }
-

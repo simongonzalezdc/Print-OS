@@ -1,12 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { History, RotateCcw, Save, Trash2, Clock, MessageSquare, ChevronRight } from 'lucide-react';
+import { History, RotateCcw, Save, Clock, MessageSquare, ChevronRight } from 'lucide-react';
 import { useSceneStore } from '@/lib/scene/store';
 import { VersionManager, DesignVersion } from '@/lib/storage/versioning';
 import { toast } from 'sonner';
-import { cn } from '@/lib/utils';
-import { CyberCard } from '../ui/CyberCard';
 import { CyberButton } from '../ui/CyberButton';
 
 interface VersionHistoryPanelProps {
@@ -42,7 +40,7 @@ export function VersionHistoryPanel({ objectId, onClose }: VersionHistoryPanelPr
       await VersionManager.saveVersion(objectId, object.jscadCode, 'Manual Snapshot');
       await fetchVersions();
       toast.success('Version saved');
-    } catch (error) {
+    } catch {
       toast.error('Failed to save version');
     }
   };
@@ -59,7 +57,7 @@ export function VersionHistoryPanel({ objectId, onClose }: VersionHistoryPanelPr
       updateObject(objectId, { jscadCode: version.code });
       toast.success('Rolled back to version from ' + new Date(version.timestamp).toLocaleString());
       onClose();
-    } catch (error) {
+    } catch {
       toast.error('Failed to rollback');
     }
   };

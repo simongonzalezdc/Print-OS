@@ -12,7 +12,8 @@ import {
   Anchor,
   Star,
   Zap,
-  Loader2
+  Loader2,
+  type LucideIcon
 } from 'lucide-react';
 import { useSceneStore } from '@/lib/scene/store';
 import { cn } from '@/lib/utils';
@@ -28,7 +29,7 @@ interface Template {
   difficulty: string;
 }
 
-const CATEGORY_ICONS: Record<string, any> = {
+const CATEGORY_ICONS: Record<string, LucideIcon> = {
   'footwear': Footprints,
   'desk-org': Monitor,
   'electronics': Cpu,
@@ -39,7 +40,6 @@ const CATEGORY_ICONS: Record<string, any> = {
 export function TemplateGalleryPanel() {
   const addObject = useSceneStore((state) => state.addObject);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set(['footwear']));
   const [isLoading, setIsLoading] = useState<string | null>(null);
 
@@ -47,10 +47,9 @@ export function TemplateGalleryPanel() {
     return templateIndex.templates.filter(t => {
       const matchesSearch = t.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                            t.description.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesCategory = !selectedCategory || t.category === selectedCategory;
-      return matchesSearch && matchesCategory;
+      return matchesSearch;
     });
-  }, [searchQuery, selectedCategory]);
+  }, [searchQuery]);
 
   const toggleCategory = (id: string) => {
     setExpandedCategories(prev => {

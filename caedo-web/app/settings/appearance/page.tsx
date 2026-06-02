@@ -18,6 +18,7 @@ const ACCENT_PRESETS = [
   { name: 'Warning Orange', color: '#f97316' },
   { name: 'Cyber Yellow', color: '#eab308' },
 ];
+type ThemeMode = 'light' | 'dark' | 'system';
 
 export default function AppearanceSettingsPage() {
   const { theme, setTheme, accentColor, setAccentColor } = useTheme();
@@ -47,7 +48,7 @@ export default function AppearanceSettingsPage() {
             ].map((t) => (
               <button
                 key={t.id}
-                onClick={() => setTheme(t.id as any)}
+                onClick={() => setTheme(t.id as ThemeMode)}
                 className={cn(
                   "flex flex-col items-center gap-3 p-4 border rounded transition-all group",
                   theme === t.id 
@@ -166,4 +167,3 @@ export default function AppearanceSettingsPage() {
     </div>
   );
 }
-

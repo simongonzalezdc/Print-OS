@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Cpu, Globe, Key, Activity } from 'lucide-react';
+import { X, Cpu, Globe, Key } from 'lucide-react';
 import { CyberCard } from '../ui/CyberCard';
 import { CyberButton } from '../ui/CyberButton';
 import { CyberInput } from '../ui/CyberInput';
@@ -150,7 +150,7 @@ export const PrinterModal = ({ isOpen, onClose, onSave, printer }: PrinterModalP
                     <select 
                       className="w-full bg-background/50 border border-border rounded-[2px] px-3 py-2 text-sm font-mono focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
                       value={formData.api_type}
-                      onChange={e => setFormData({...formData, api_type: e.target.value as any})}
+                      onChange={e => setFormData({...formData, api_type: e.target.value as Printer['api_type']})}
                     >
                       <option value="none">Manual Control</option>
                       <option value="octoprint">OctoPrint</option>

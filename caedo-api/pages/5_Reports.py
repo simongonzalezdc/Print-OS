@@ -19,8 +19,8 @@ with st.sidebar:
     st.header("AI_INFRASTRUCTURE_V2")
     usage = AIUsageRepository.get_summary()
     if usage:
-        st.metric("TOTAL_AI_CALLS", usage.get('total_calls', 0))
-        st.metric("TOTAL_TOKENS", f"{usage.get('total_tokens', 0):,}")
+        st.metric("TOTAL_AI_CALLS", usage.get('total_calls') or 0)
+        st.metric("TOTAL_TOKENS", f"{usage.get('total_tokens') or 0:,}")
 
 # 1. Fetch Data
 all_jobs = JobsRepository.get_all()

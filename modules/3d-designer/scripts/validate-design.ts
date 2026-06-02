@@ -71,7 +71,7 @@ async function validate() {
     let code = result.text;
     const match = code.match(/```(?:javascript|js|jscad)?\n([\s\S]*?)\n```/);
     if (match) {
-        code = match[1];
+        code = match[1] ?? code;
         console.log('Extracted code block');
     }
 

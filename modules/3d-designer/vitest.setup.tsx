@@ -15,6 +15,7 @@ vi.mock('@react-three/fiber', () => ({
     camera: { position: [0, 0, 0] },
     gl: { domElement: document.createElement('canvas') },
     viewport: { width: 100, height: 100, factor: 1 },
+    invalidate: vi.fn(),
   }),
   useFrame: vi.fn(),
 }));
@@ -31,3 +32,34 @@ vi.mock('@react-three/drei', () => ({
   Stats: () => null,
   Preload: () => null,
 }));
+
+// Mock IndexedDB for testing
+if (typeof window !== 'undefined' && !window.indexedDB) {
+  const mockRequest = {
+    onupgradeneeded: null,
+    onsuccess: null,
+    onerror: null,
+    result: {
+      createObjectStore: vi.fn().mockReturnValue({
+        createIndex: vi.fn(),
+      }),
+      transaction: vi.fn().mockReturnValue({
+        objectStore: vi.fn().mockReturnValue({
+          get: vi.fn().mockReturnValue({ onsuccess: null }),
+          put: vi.fn().mockReturnValue({ onsuccess: null }),
+          delete: vi.fn().mockReturnValue({ onsuccess: null }),
+          clear: vi.fn().mockReturnValue({ onsuccess: null }),
+        }),
+        oncomplete: null,
+        onerror: null,
+      }),
+    },
+  };
+
+  const mockIDB = {
+    open: vi.fn().mockReturnValue(mockRequest),
+    deleteDatabase: vi.fn().mockReturnValue(mockRequest),
+  };
+
+  window.indexedDB = mockIDB as unknown as IDBFactory;
+}

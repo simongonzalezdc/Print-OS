@@ -30,7 +30,7 @@ export function Toolbar() {
   const duplicateObject = useSceneStore((state) => state.duplicateObject);
   const deleteSelectedObjects = useSceneStore((state) => state.deleteSelectedObjects);
   
-  const hasSelection = selectedIds.size > 0;
+  const hasSelection = (selectedIds?.size ?? 0) > 0;
 
   return (
     <div className="flex items-center gap-0.5">
@@ -130,6 +130,7 @@ function IconButton({ icon: Icon, onClick, disabled, label }: { icon: LucideIcon
       onClick={onClick}
       disabled={disabled}
       title={label}
+      aria-label={label}
       className={cn(
         "dock-item transition-all duration-200",
         disabled 
@@ -137,7 +138,7 @@ function IconButton({ icon: Icon, onClick, disabled, label }: { icon: LucideIcon
           : "text-white/70 hover:text-white active:scale-95"
       )}
     >
-      <Icon className="w-4 h-4" />
+      <Icon className="w-4 h-4" aria-hidden="true" />
     </button>
   );
 }
@@ -148,6 +149,8 @@ function IconButton({ icon: Icon, onClick, disabled, label }: { icon: LucideIcon
 function ToolButton({ icon: Icon, label, active }: { icon: LucideIcon, label: string, active?: boolean }) {
   return (
     <button
+      aria-pressed={active}
+      aria-label={label}
       className={cn(
         "dock-item flex items-center gap-1 transition-all duration-200",
         active
@@ -155,7 +158,7 @@ function ToolButton({ icon: Icon, label, active }: { icon: LucideIcon, label: st
           : "text-white/60 hover:text-white"
       )}
     >
-      <Icon className="w-4 h-4" />
+      <Icon className="w-4 h-4" aria-hidden="true" />
       {label && <span className="text-xs font-medium hidden sm:inline">{label}</span>}
     </button>
   );
@@ -186,6 +189,8 @@ function TransformButton({
       onClick={onClick}
       disabled={disabled}
       title={label}
+      aria-pressed={isActive}
+      aria-label={label}
       className={cn(
         "dock-item transition-all duration-200",
         disabled 
@@ -195,7 +200,7 @@ function TransformButton({
             : "text-white/60 hover:text-white hover:bg-white/5"
       )}
     >
-      <Icon className="w-4 h-4" />
+      <Icon className="w-4 h-4" aria-hidden="true" />
     </button>
   );
 }

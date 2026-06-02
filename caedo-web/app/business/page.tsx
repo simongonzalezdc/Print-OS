@@ -39,7 +39,7 @@ interface CostResult {
 
 export default function BusinessPage() {
   const handoff = useSceneStore((state) => state.handoff.pendingBusinessAnalysis);
-  const clearHandoff = useSceneStore((state) => () => state.setPendingBusinessAnalysis(null));
+  const setPendingBusinessAnalysis = useSceneStore((state) => state.setPendingBusinessAnalysis);
   const setPendingDesignPrompt = useSceneStore((state) => state.setPendingDesignPrompt);
   const router = useRouter();
   
@@ -158,7 +158,7 @@ export default function BusinessPage() {
                     </p>
                   </div>
                 </div>
-                <button onClick={clearHandoff} className="text-muted-foreground hover:text-primary transition-colors">
+                <button onClick={() => setPendingBusinessAnalysis(null)} className="text-muted-foreground hover:text-primary transition-colors">
                   <XCircle className="w-4 h-4" />
                 </button>
               </div>
@@ -370,4 +370,3 @@ export default function BusinessPage() {
     </div>
   );
 }
-

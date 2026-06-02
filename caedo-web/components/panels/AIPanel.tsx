@@ -264,7 +264,9 @@ export function AIPanel({ onToggle, initialInput }: AIPanelProps) {
             body: JSON.stringify({ 
               messages: messagesArray.map(m => ({
                 role: m.role,
-                content: m.content || (Array.isArray(m.parts) ? m.parts.map((p: any) => p.text || '').join('') : '')
+                content: m.content || (Array.isArray(m.parts) ? m.parts.map((p) => (
+                  typeof p === 'object' && p !== null && 'text' in p && typeof p.text === 'string' ? p.text : ''
+                )).join('') : '')
               }))
             })
           }).catch(err => console.error('Failed to extract memories:', err));

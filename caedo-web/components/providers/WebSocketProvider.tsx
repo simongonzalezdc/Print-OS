@@ -7,11 +7,22 @@ import { toast } from 'sonner';
 
 interface WebSocketContextType {
   isConnected: boolean;
-  lastMessage: any;
-  sendMessage: (message: any) => void;
+  lastMessage: unknown;
+  sendMessage: (message: unknown) => void;
 }
 
 const WebSocketContext = createContext<WebSocketContextType | null>(null);
+
+function isQueueUpdate(message: unknown): message is { type: 'QUEUE_UPDATE'; job_id: string } {
+  return (
+    typeof message === 'object' &&
+    message !== null &&
+    'type' in message &&
+    'job_id' in message &&
+    message.type === 'QUEUE_UPDATE' &&
+    typeof message.job_id === 'string'
+  );
+}
 
 export function WebSocketProvider({ children }: { children: React.ReactNode }) {
   const [clientId] = useState(() => {
@@ -28,7 +39,7 @@ export function WebSocketProvider({ children }: { children: React.ReactNode }) {
   const ws = useWebSocket(clientId);
 
   useEffect(() => {
-    if (ws.lastMessage?.type === 'QUEUE_UPDATE') {
+    if (isQueueUpdate(ws.lastMessage)) {
       toast.info(`Queue Updated: Job ${ws.lastMessage.job_id.slice(0, 8)}`);
     }
   }, [ws.lastMessage]);

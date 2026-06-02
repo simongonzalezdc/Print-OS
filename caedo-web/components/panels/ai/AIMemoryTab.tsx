@@ -49,7 +49,7 @@ export function AIMemoryTab() {
         fetchMemories();
         toast.success('Memory preserved');
       }
-    } catch (error) {
+    } catch {
       toast.error('Failed to save memory');
     }
   }
@@ -61,7 +61,7 @@ export function AIMemoryTab() {
         setMemories(memories.filter(m => m.id !== id));
         toast.success('Memory cleared');
       }
-    } catch (error) {
+    } catch {
       toast.error('Failed to delete memory');
     }
   }
@@ -75,7 +75,7 @@ export function AIMemoryTab() {
       if (res.ok) {
         fetchMemories();
       }
-    } catch (error) {
+    } catch {
       toast.error('Failed to update importance');
     }
   }

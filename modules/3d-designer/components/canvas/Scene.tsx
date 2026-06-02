@@ -4,7 +4,6 @@ import { Suspense, useRef, useMemo, useEffect } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import {
   Grid,
-  Environment,
   Preload,
   PerformanceMonitor,
   AdaptiveDpr,
@@ -140,14 +139,6 @@ function SceneContent() {
     return Array.from(objects.values());
   }, [objects]);
 
-  // Environment lighting
-  const environment = useMemo(() => (
-    <Environment
-      preset="studio"
-      background={false} // We'll use our own background
-    />
-  ), []);
-
   // Build plate grid - Orca Slicer style
   const grid = useMemo(() => {
     if (!gridVisible) return null;
@@ -187,9 +178,6 @@ function SceneContent() {
         shadow-camera-bottom={-20}
         shadow-bias={RENDER.SHADOW_BIAS}
       />
-
-      {/* Environment */}
-      {environment}
 
       {/* Build plate visualization - Orca Slicer style */}
       {/* Main build plate surface */}

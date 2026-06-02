@@ -23,6 +23,12 @@ interface Printer {
   current_status: string;
 }
 
+type PrinterFormData = Omit<Printer, 'id' | 'current_status'> & {
+  id?: number;
+  current_status?: string;
+  notes?: string;
+};
+
 interface PrinterStatus {
   success: boolean;
   status: string;
@@ -82,7 +88,7 @@ export default function FacilityPage() {
     }
   }
 
-  const handleSavePrinter = async (printerData: any) => {
+  const handleSavePrinter = async (printerData: PrinterFormData) => {
     try {
       const method = printerData.id ? 'PUT' : 'POST';
       const url = printerData.id ? `/api/v1/printfarm/printers/${printerData.id}` : '/api/v1/printfarm/printers';
@@ -297,4 +303,3 @@ export default function FacilityPage() {
     </div>
   );
 }
-

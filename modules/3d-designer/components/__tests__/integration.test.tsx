@@ -13,7 +13,9 @@ enableMapSet();
 
 // Mock the scene store
 vi.mock('@/lib/scene/store', () => ({
-  useSceneStore: vi.fn(),
+  useSceneStore: Object.assign(vi.fn(), {
+    subscribe: vi.fn(() => vi.fn()),
+  }),
 }));
 
 // Mock AI SDK
@@ -69,6 +71,11 @@ const createMockStore = (overrides: Partial<SceneStore> = {}): SceneStore => ({
   redo: vi.fn(),
   loadProject: vi.fn(),
   saveProject: vi.fn(() => undefined),
+  initProject: vi.fn(() => null),
+  createProject: vi.fn(),
+  renameProject: vi.fn(),
+  openProject: vi.fn(() => null),
+  listProjects: vi.fn(() => []),
   setVoiceState: vi.fn(),
   setAIProcessing: vi.fn(),
   setPrinterProfile: vi.fn(),
@@ -156,6 +163,7 @@ describe('VoiceForge 3D - End-to-End Integration', () => {
         resumeStream: vi.fn(),
         addToolResult: vi.fn(),
         addToolOutput: vi.fn(),
+        addToolApprovalResponse: vi.fn(),
         clearError: vi.fn(),
         error: undefined,
         id: 'test-chat',
@@ -208,13 +216,13 @@ describe('VoiceForge 3D - End-to-End Integration', () => {
       render(<Toolbar />);
 
       // Test undo button
-      const undoButton = screen.getByTitle('Undo');
+      const undoButton = screen.getByTitle('Undo (Ctrl+Z)');
       expect(undoButton).not.toBeDisabled();
       fireEvent.click(undoButton);
       expect(mockUndo).toHaveBeenCalledTimes(1);
 
       // Test redo button (should be disabled)
-      const redoButton = screen.getByTitle('Redo');
+      const redoButton = screen.getByTitle('Redo (Ctrl+Shift+Z)');
       expect(redoButton).toBeDisabled();
 
       // Test save button
@@ -268,8 +276,8 @@ describe('VoiceForge 3D - End-to-End Integration', () => {
       render(<Toolbar />);
 
       // Check for proper titles/aria-labels
-      const undoButton = screen.getByTitle('Undo');
-      const redoButton = screen.getByTitle('Redo');
+      const undoButton = screen.getByTitle('Undo (Ctrl+Z)');
+      const redoButton = screen.getByTitle('Redo (Ctrl+Shift+Z)');
       const saveButton = screen.getByTitle('Save Project');
 
       expect(undoButton).toBeInTheDocument();

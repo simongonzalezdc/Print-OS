@@ -63,7 +63,7 @@ export default function InventoryPage() {
         setNewItem({ ...newItem, color: '' });
         fetchInventory();
       }
-    } catch (error) {
+    } catch {
       toast.error('Failed to add inventory');
     }
   };
@@ -76,7 +76,7 @@ export default function InventoryPage() {
         toast.success('Item removed');
         fetchInventory();
       }
-    } catch (error) {
+    } catch {
       toast.error('Failed to remove item');
     }
   };
@@ -215,7 +215,7 @@ export default function InventoryPage() {
             )}
           ]}
           data={items}
-          emptyMessage="VAULT_EMPTY // NO_MATERIALS_REGISTERED"
+          emptyMessage={loading ? "LOADING_RESERVES..." : "VAULT_EMPTY // NO_MATERIALS_REGISTERED"}
         />
       </CyberCard>
 

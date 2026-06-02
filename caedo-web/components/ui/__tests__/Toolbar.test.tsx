@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Toolbar } from '../Toolbar';
 import { useSceneStore } from '@/lib/scene/store';
+import type { SceneStore } from '@/types';
 
 // Mock the scene store
 vi.mock('@/lib/scene/store', () => ({
@@ -26,7 +27,7 @@ describe('Toolbar', () => {
 
   const setupMockStore = (overrides = {}) => {
     const state = { ...defaultState, ...overrides };
-    mockUseSceneStore.mockImplementation((selector) => selector(state));
+    mockUseSceneStore.mockImplementation((selector) => selector(state as unknown as SceneStore));
     return state;
   };
 
