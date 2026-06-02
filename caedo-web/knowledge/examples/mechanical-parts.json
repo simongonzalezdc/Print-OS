@@ -1,0 +1,12 @@
+[
+    {
+        "title": "Adjustable Phone Stand",
+        "prompt": "Create an adjustable phone stand with a hinge mechanism. The base should be 80x80x5mm. The arm should be 100mm long. Use a modular approach with a support pin.",
+        "jscad_code": "const { cuboid, cylinder, union, subtract } = require('@jscad/modeling').primitives;\nconst { rotate, translate } = require('@jscad/modeling').transforms;\n\nfunction main() {\n  const base = cuboid({ size: [80, 80, 5] });\n  const hingeMount = translate([0, 35, 10], cuboid({ size: [20, 10, 20] }));\n  const arm = translate([0, 35, 20], rotate([Math.PI/4, 0, 0], cuboid({ size: [15, 5, 100], center: [0, 0, 50] })));\n  return union(base, hingeMount, arm);\n}"
+    },
+    {
+        "title": "Custom Gear",
+        "prompt": "Generate a spur gear with 20 teeth, module 2, and a 5mm central bore.",
+        "jscad_code": "// Simplified gear representation\nconst { cylinder, union, subtract } = require('@jscad/modeling').primitives;\nconst { rotate, translate } = require('@jscad/modeling').transforms;\n\nfunction main() {\n  const hub = cylinder({ radius: 20, height: 5 });\n  const teeth = [];\n  for (let i = 0; i < 20; i++) {\n    teeth.push(rotate([0, 0, (i * Math.PI * 2) / 20], translate([20, 0, 0], cuboid({ size: [4, 2, 5] }))));\n  }\n  const bore = cylinder({ radius: 2.5, height: 10 });\n  return subtract(union(hub, ...teeth), bore);\n}"
+    }
+]

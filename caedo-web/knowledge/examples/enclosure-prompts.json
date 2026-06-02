@@ -1,0 +1,48 @@
+{
+    "description": "Few-shot examples for AI: enclosure design prompts and their validated JSCAD outputs",
+    "version": "1.0.0",
+    "examples": [
+        {
+            "id": "basic-electronics-enclosure",
+            "prompt": "Create a simple electronics enclosure 80mm x 60mm x 40mm with 2mm walls and a removable lid",
+            "tags": [
+                "enclosure",
+                "electronics",
+                "lid"
+            ],
+            "validated": false,
+            "notes": "Template example - needs validation with actual print",
+            "code": "// JSCAD code will be added after validation"
+        },
+        {
+            "id": "raspberry-pi-case",
+            "prompt": "Make a case for a Raspberry Pi 4 with ventilation and access to all ports",
+            "tags": [
+                "enclosure",
+                "raspberry-pi",
+                "ventilation"
+            ],
+            "validated": false,
+            "notes": "Template example - needs validation with actual print",
+            "code": "// JSCAD code will be added after validation"
+        },
+        {
+            "id": "phone-stand-adjustable",
+            "prompt": "Design a phone stand that works with any phone size and can hold it at different angles",
+            "tags": [
+                "stand",
+                "phone",
+                "adjustable"
+            ],
+            "validated": false,
+            "notes": "Template example - needs validation with actual print",
+            "code": "// JSCAD code will be added after validation"
+        }
+    ],
+    "usageNotes": [
+        "Add validated examples after successfully printing and testing designs",
+        "Include the full JSCAD code that produced a working print",
+        "Tag examples for easy retrieval during prompting",
+        "Mark 'validated: true' only after physical testing"
+    ]
+}

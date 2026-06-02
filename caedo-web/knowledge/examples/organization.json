@@ -1,0 +1,36 @@
+{
+  "description": "Few-shot examples for AI: desk and home organization items",
+  "version": "1.0.0",
+  "examples": [
+    {
+      "id": "pen-holder-hex",
+      "prompt": "Create a hexagonal pen holder with 30mm radius and 100mm height",
+      "tags": ["organization", "desk", "pen-holder"],
+      "code": "/* JSCAD code for hexagonal pen holder */"
+    },
+    {
+      "id": "cable-clip-desk",
+      "prompt": "Design a cable clip for a 25mm thick desk edge holding two 6mm cables",
+      "tags": ["organization", "desk", "cable-management"],
+      "code": "/* JSCAD code for desk cable clip */"
+    },
+    {
+      "id": "drawer-bin",
+      "prompt": "Custom drawer bin 100x60x40mm with rounded corners",
+      "tags": ["organization", "storage", "bin"],
+      "code": "/* JSCAD code for drawer bin */"
+    },
+    {
+      "id": "sd-card-tray",
+      "prompt": "SD card storage tray holding 10 full size cards",
+      "tags": ["organization", "desk", "storage"],
+      "code": "/* JSCAD code for SD card tray */"
+    },
+    {
+      "id": "headphone-stand",
+      "prompt": "Desk-standing headphone rack with wide support arc",
+      "tags": ["organization", "desk", "audio"],
+      "code": "/* JSCAD code for headphone stand */"
+    }
+  ]
+}

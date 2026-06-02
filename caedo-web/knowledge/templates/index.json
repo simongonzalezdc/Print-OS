@@ -1,0 +1,64 @@
+{
+  "categories": [
+    {
+      "id": "footwear",
+      "name": "Footwear",
+      "description": "Professional footwear templates and components",
+      "featured": true
+    },
+    {
+      "id": "desk-org",
+      "name": "Desk Organization",
+      "description": "Organize your workspace"
+    },
+    {
+      "id": "electronics",
+      "name": "Electronics Enclosures",
+      "description": "Cases for popular development boards"
+    },
+    {
+      "id": "wall-mounts",
+      "name": "Wall Mounts & Hooks",
+      "description": "Storage solutions for your walls"
+    },
+    {
+      "id": "storage",
+      "name": "Storage & Bins",
+      "description": "Compartments and containers"
+    }
+  ],
+  "templates": [
+    {
+      "id": "athletic-recovery-slide",
+      "name": "Athletic Recovery Slide",
+      "category": "footwear",
+      "path": "shoe-templates/athletic_recovery_slide.jscad",
+      "description": "Cushioned slide with arch support",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "platform-slide",
+      "name": "Platform Slide",
+      "category": "footwear",
+      "path": "shoe-templates/platform_slide.jscad",
+      "description": "Fashion-forward elevated sole slide",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "cable-clip",
+      "name": "Parametric Cable Clip",
+      "category": "desk-org",
+      "path": "desk-org/cable_clip.jscad",
+      "description": "Securely hold cables to your desk",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "rpi4-case",
+      "name": "Raspberry Pi 4 Case",
+      "category": "electronics",
+      "path": "electronics/rpi4_case.jscad",
+      "description": "Protective shell for RPi 4",
+      "difficulty": "Beginner"
+    }
+  ]
+}

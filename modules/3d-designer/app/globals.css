@@ -1,0 +1,262 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS variables for pro creative tool dark theme */
+:root {
+  /* Zinc-like palette for neutral tones */
+  --background: 240 10% 3.9%; /* zinc-950 */
+  --foreground: 0 0% 98%;      /* zinc-50 */
+  
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  
+  --primary: 252 59% 50%;      /* Vivid Purple/Blue - Creative Tool Accent */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 240 5.9% 10%;   /* zinc-900 */
+  --secondary-foreground: 0 0% 98%;
+  
+  --muted: 240 3.7% 15.9%;     /* zinc-800 */
+  --muted-foreground: 240 5% 64.9%; /* zinc-400 */
+  
+  --accent: 240 3.7% 15.9%;    /* zinc-800 */
+  --accent-foreground: 0 0% 98%;
+  
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --border: 240 3.7% 15.9%;    /* zinc-800 */
+  --input: 240 3.7% 15.9%;
+  --ring: 240 4.9% 83.9%;
+  
+  --radius: 0.3rem;            /* Tighter radius for pro look */
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Pro UI Utilities - Glassmorphism Design System */
+@layer utilities {
+  /* Base Glassmorphism Effects */
+  .glass {
+    @apply bg-background/80 backdrop-blur-md border-r border-border;
+  }
+  
+  .glass-panel {
+    @apply bg-card/90 backdrop-blur-sm border border-border/50 shadow-xl;
+  }
+
+  /* Pro-Tier Glassmorphism Layers */
+  .glass-pro-base {
+    @apply bg-black/40 backdrop-blur-xl border border-white/5;
+  }
+
+  .glass-pro-elevated {
+    @apply bg-black/50 backdrop-blur-2xl border border-white/10 shadow-2xl;
+  }
+
+  .glass-pro-floating {
+    @apply bg-black/30 backdrop-blur-3xl border border-white/20 shadow-xl;
+  }
+
+  .glass-pro-hover {
+    @apply transition-all duration-300 hover:bg-black/40 hover:border-white/20;
+  }
+
+  /* Dynamic Island Style Header */
+  .dynamic-island {
+    @apply px-4 py-2 rounded-full glass-pro-base shadow-lg;
+  }
+
+  /* Floating Dock */
+  .floating-dock {
+    @apply glass-pro-base rounded-3xl shadow-2xl;
+  }
+
+  .dock-item {
+    @apply p-3 rounded-lg transition-all duration-200 hover:bg-primary/20 active:scale-95;
+  }
+
+  .dock-item-active {
+    @apply bg-primary/30 shadow-glow;
+  }
+
+  /* Text Sizes */
+  .text-xxs {
+    font-size: 0.625rem;
+    line-height: 0.75rem;
+  }
+
+  /* Custom Scrollbar - Thin and minimal */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full hover:bg-muted-foreground/50 transition-colors;
+  }
+
+  /* Input Focus Ring Glow */
+  .input-glow {
+    @apply focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background transition-all;
+  }
+
+  /* Button Pressed State */
+  .btn-pressed {
+    @apply active:scale-95 transition-transform duration-100;
+  }
+
+  /* Subtle Gradient Border */
+  .gradient-border {
+    @apply relative border border-transparent;
+    background-image: 
+      linear-gradient(black, black),
+      linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(168, 85, 247, 0.3));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  /* Status Indicator Pulse */
+  .status-pulse {
+    @apply relative inline-flex h-2 w-2;
+  }
+
+  .status-pulse::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: #22c55e;
+    animation: pulse-ring 1.5s infinite;
+  }
+
+  .status-pulse::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: #22c55e;
+  }
+}
+
+/* Canvas Container */
+.canvas-container {
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 1px 1px, #27272a 1px, transparent 0);
+  background-size: 24px 24px;
+  background-color: #09090b; /* zinc-950 */
+}
+
+/* Code Editor Font */
+.code-editor {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+  font-variant-ligatures: normal;
+}
+
+/* Animations - Modern Floating UI */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0px rgba(99, 102, 241, 0.2); }
+  50% { box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2); }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-up-fade {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down-fade {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes dock-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.animate-slide-up-fade {
+  animation: slide-up-fade 0.3s ease-out;
+}
+
+.animate-slide-down-fade {
+  animation: slide-down-fade 0.3s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-dock-bounce {
+  animation: dock-bounce 0.4s ease-in-out;
+}

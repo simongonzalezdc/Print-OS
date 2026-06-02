@@ -1,0 +1,72 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /caedo-web
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      ai-sdk:
+        patterns:
+          - ai
+          - "@ai-sdk/*"
+      next-stack:
+        patterns:
+          - next
+          - react
+          - react-dom
+      three-stack:
+        patterns:
+          - three
+          - "@react-three/*"
+          - "@types/three"
+      test-tooling:
+        patterns:
+          - vitest
+          - "@vitest/*"
+          - playwright
+          - "@playwright/*"
+
+  - package-ecosystem: npm
+    directory: /modules/3d-designer
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      ai-sdk:
+        patterns:
+          - ai
+          - "@ai-sdk/*"
+      next-stack:
+        patterns:
+          - next
+          - react
+          - react-dom
+      three-stack:
+        patterns:
+          - three
+          - "@react-three/*"
+          - "@types/three"
+      test-tooling:
+        patterns:
+          - vitest
+          - "@vitest/*"
+          - playwright
+          - "@playwright/*"
+
+  - package-ecosystem: pip
+    directory: /caedo-api
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5

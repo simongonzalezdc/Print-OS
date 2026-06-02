@@ -1,0 +1,24 @@
+{
+  "description": "Few-shot examples for AI: parametric patterns and utilities",
+  "version": "1.0.0",
+  "examples": [
+    {
+      "id": "pattern-grid",
+      "prompt": "Generate a 5x5 grid of 10mm cubes with 5mm spacing",
+      "tags": ["patterns", "grid", "parametric"],
+      "code": "/* JSCAD code for grid pattern */"
+    },
+    {
+      "id": "pattern-circular",
+      "prompt": "Radial array of 8 cylinders around a 50mm center",
+      "tags": ["patterns", "circular", "array"],
+      "code": "/* JSCAD code for circular array */"
+    },
+    {
+      "id": "text-embossed",
+      "prompt": "Embossed text 'CAEDO' on a flat plate",
+      "tags": ["utility", "text", "emboss"],
+      "code": "/* JSCAD code for embossed text */"
+    }
+  ]
+}

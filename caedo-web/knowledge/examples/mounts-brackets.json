@@ -1,0 +1,30 @@
+{
+  "description": "Few-shot examples for AI: wall mounts, brackets, and hooks",
+  "version": "1.0.0",
+  "examples": [
+    {
+      "id": "shelf-bracket-l",
+      "prompt": "Reinforced L-bracket for a 150mm shelf, 30mm wide",
+      "tags": ["mounts", "brackets", "shelf"],
+      "code": "/* JSCAD code for shelf bracket */"
+    },
+    {
+      "id": "hook-heavy-duty",
+      "prompt": "Wall-mounted J-hook for heavy tools, 10mm thick",
+      "tags": ["mounts", "hooks", "tools"],
+      "code": "/* JSCAD code for heavy duty hook */"
+    },
+    {
+      "id": "monitor-mount-vesa",
+      "prompt": "VESA 75x75 to 100x100 adapter plate",
+      "tags": ["mounts", "adapter", "monitor"],
+      "code": "/* JSCAD code for VESA adapter */"
+    },
+    {
+      "id": "bike-wall-mount",
+      "prompt": "Sturdy wall hook for bicycle front wheel",
+      "tags": ["mounts", "storage", "bike"],
+      "code": "/* JSCAD code for bike mount */"
+    }
+  ]
+}

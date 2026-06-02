@@ -1,0 +1,16 @@
+{
+  "name": "Caedo 3D",
+  "short_name": "Caedo",
+  "description": "AI-Powered Parametric 3D Design Studio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#00FFCC",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "name": "voiceforge-3d",
+  "version": "0.1.0",
+  "description": "Voice-first, AI-powered parametric 3D design for 3D printing",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "ensure:ollama": "node scripts/ensure-ollama.js",
+    "dev": "npm run ensure:ollama && next dev",
+    "build": "npm run ensure:ollama && next build",
+    "start": "npm run ensure:ollama && next start",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "validate": "node scripts/validate-production.js"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.81",
+    "@ai-sdk/google": "^3.0.80",
+    "@ai-sdk/openai": "^3.0.67",
+    "@ai-sdk/react": "^3.0.196",
+    "@jscad/modeling": "^2.12.6",
+    "@react-three/csg": "^4.0.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.4.0",
+    "ai": "^6.0.194",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.24",
+    "idb-keyval": "^6.2.1",
+    "immer": "^10.1.0",
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.555.0",
+    "nanoid": "^5.0.0",
+    "next": "^16.0.4",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.4.0",
+    "three": "^0.181.2",
+    "zod": "^3.23.0",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.181.0",
+    "@typescript-eslint/eslint-plugin": "^8.48.0",
+    "@typescript-eslint/parser": "^8.48.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "@vitest/coverage-v8": "^4.0.14",
+    "autoprefixer": "^10.4.22",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.0.0",
+    "jsdom": "^27.3.0",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.14"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "packageManager": "npm",
+  "overrides": {
+    "postcss": "^8.5.10"
+  }
+}

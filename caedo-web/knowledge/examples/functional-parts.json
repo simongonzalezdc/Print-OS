@@ -1,0 +1,30 @@
+{
+  "description": "Few-shot examples for AI: mechanical and functional parts",
+  "version": "1.0.0",
+  "examples": [
+    {
+      "id": "gear-spur",
+      "prompt": "Spur gear with 20 teeth, module 2, 5mm bore",
+      "tags": ["mechanical", "gears", "spur-gear"],
+      "code": "/* JSCAD code for spur gear */"
+    },
+    {
+      "id": "hinge-pin",
+      "prompt": "Two-part pin hinge for 3D printed assemblies",
+      "tags": ["mechanical", "hinge"],
+      "code": "/* JSCAD code for pin hinge */"
+    },
+    {
+      "id": "knob-fluted",
+      "prompt": "Fluted control knob for 6mm D-shaft potentiometer",
+      "tags": ["functional", "knob", "control"],
+      "code": "/* JSCAD code for fluted knob */"
+    },
+    {
+      "id": "snap-fit-clip",
+      "prompt": "Cantilever snap-fit clip for enclosure lids",
+      "tags": ["mechanical", "clip", "snap-fit"],
+      "code": "/* JSCAD code for snap-fit clip */"
+    }
+  ]
+}

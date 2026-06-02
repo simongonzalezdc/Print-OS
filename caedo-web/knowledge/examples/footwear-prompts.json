@@ -1,0 +1,186 @@
+{
+  "description": "Few-shot examples for AI: footwear design prompts and their validated JSCAD outputs",
+  "version": "1.0.0",
+  "examples": [
+    {
+      "id": "slide-recovery-basic",
+      "prompt": "Create a recovery slide in EU 42 with arch support and textured footbed",
+      "tags": ["slide", "recovery", "arch"],
+      "code": "/* JSCAD code for athletic recovery slide */"
+    },
+    {
+      "id": "slide-drainage",
+      "prompt": "Athletic slide with drainage holes pattern and grip outsole",
+      "tags": ["slide", "athletic", "drainage"],
+      "code": "/* JSCAD code for drainage slide */"
+    },
+    {
+      "id": "slide-platform",
+      "prompt": "Platform slide with 40mm elevated sole in EU 38",
+      "tags": ["slide", "platform", "fashion"],
+      "code": "/* JSCAD code for platform slide */"
+    },
+    {
+      "id": "insole-arch-med",
+      "prompt": "Medium arch support insole for EU 44 running shoes",
+      "tags": ["insole", "arch", "sport"],
+      "code": "/* JSCAD code for arch support insole */"
+    },
+    {
+      "id": "insole-diabetic",
+      "prompt": "Diabetic-friendly insole with pressure redistribution zones",
+      "tags": ["insole", "medical", "diabetic"],
+      "code": "/* JSCAD code for diabetic insole */"
+    },
+    {
+      "id": "insole-custom",
+      "prompt": "Full orthotic from foot scan with 22mm arch height",
+      "tags": ["orthotic", "custom", "scan"],
+      "code": "/* JSCAD code for custom orthotic */"
+    },
+    {
+      "id": "midsole-gyroid",
+      "prompt": "Gyroid lattice midsole at 30% density for EU 42",
+      "tags": ["midsole", "lattice", "gyroid"],
+      "code": "/* JSCAD code for gyroid midsole */"
+    },
+    {
+      "id": "midsole-variable",
+      "prompt": "Variable density midsole: soft heel, firm forefoot",
+      "tags": ["midsole", "variable", "zones"],
+      "code": "/* JSCAD code for variable density midsole */"
+    },
+    {
+      "id": "midsole-impact",
+      "prompt": "Impact-absorbing heel insert using TPMS structure",
+      "tags": ["midsole", "impact", "tpms"],
+      "code": "/* JSCAD code for impact insert */"
+    },
+    {
+      "id": "clog-chef",
+      "prompt": "Chef clog with oil-resistant tread and ventilation",
+      "tags": ["clog", "chef", "professional"],
+      "code": "/* JSCAD code for chef clog */"
+    },
+    {
+      "id": "clog-medical",
+      "prompt": "Medical clog with slip-resistant sole and easy clean",
+      "tags": ["clog", "medical", "nursing"],
+      "code": "/* JSCAD code for medical clog */"
+    },
+    {
+      "id": "clog-garden",
+      "prompt": "Garden clog with drainage and reinforced toe for EU 40",
+      "tags": ["clog", "garden", "outdoor"],
+      "code": "/* JSCAD code for garden clog */"
+    },
+    {
+      "id": "sandal-sport",
+      "prompt": "Sport sandal with 3-point adjustable strap system",
+      "tags": ["sandal", "sport", "adjustable"],
+      "code": "/* JSCAD code for sport sandal */"
+    },
+    {
+      "id": "sandal-beach",
+      "prompt": "Beach sandal with quick-dry and sand-release tread",
+      "tags": ["sandal", "beach", "drainage"],
+      "code": "/* JSCAD code for beach sandal */"
+    },
+    {
+      "id": "sandal-hiking",
+      "prompt": "Hiking sandal base with aggressive outsole pattern",
+      "tags": ["sandal", "hiking", "outdoor"],
+      "code": "/* JSCAD code for hiking sandal */"
+    },
+    {
+      "id": "sneaker-sole",
+      "prompt": "Complete sneaker sole unit with integrated cushioning zones",
+      "tags": ["sneaker", "sole", "integrated"],
+      "code": "/* JSCAD code for sneaker sole */"
+    },
+    {
+      "id": "sneaker-upper",
+      "prompt": "Mesh upper shell with ventilation pattern for EU 43",
+      "tags": ["sneaker", "upper", "mesh"],
+      "code": "/* JSCAD code for sneaker upper */"
+    },
+    {
+      "id": "lattice-heel",
+      "prompt": "Heel strike lattice insert with 25% gyroid density",
+      "tags": ["lattice", "heel", "cushion"],
+      "code": "/* JSCAD code for lattice heel */"
+    },
+    {
+      "id": "lattice-forefoot",
+      "prompt": "Energy return lattice for forefoot zone",
+      "tags": ["lattice", "forefoot", "rebound"],
+      "code": "/* JSCAD code for lattice forefoot */"
+    },
+    {
+      "id": "lattice-gradient",
+      "prompt": "Variable stiffness gradient: 20% heel to 40% toe",
+      "tags": ["lattice", "gradient", "variable"],
+      "code": "/* JSCAD code for lattice gradient */"
+    },
+    {
+      "id": "strap-velcro",
+      "prompt": "Adjustable velcro strap 25mm wide for sandal",
+      "tags": ["strap", "velcro", "adjustable"],
+      "code": "/* JSCAD code for velcro strap */"
+    },
+    {
+      "id": "strap-ankle",
+      "prompt": "Ankle strap with buckle closure for heel security",
+      "tags": ["strap", "ankle", "buckle"],
+      "code": "/* JSCAD code for ankle strap */"
+    },
+    {
+      "id": "orthotic-heel",
+      "prompt": "Heel cup insert for plantar fasciitis relief",
+      "tags": ["orthotic", "heel", "medical"],
+      "code": "/* JSCAD code for heel cup */"
+    },
+    {
+      "id": "orthotic-met",
+      "prompt": "Metatarsal pad insert for ball-of-foot pain",
+      "tags": ["orthotic", "metatarsal", "relief"],
+      "code": "/* JSCAD code for met pad */"
+    },
+    {
+      "id": "combo-twomat",
+      "prompt": "Two-material slide: TPU sole with PETG strap anchor",
+      "tags": ["combo", "multi-material"],
+      "code": "/* JSCAD code for two-material slide */"
+    },
+    {
+      "id": "combo-hybrid",
+      "prompt": "Hybrid clog: rigid PETG upper with TPU sole unit",
+      "tags": ["combo", "hybrid", "clog"],
+      "code": "/* JSCAD code for hybrid clog */"
+    },
+    {
+      "id": "custom-pressure",
+      "prompt": "Custom insole from pressure map with hotspot relief",
+      "tags": ["custom", "pressure", "scan"],
+      "code": "/* JSCAD code for pressure insole */"
+    },
+    {
+      "id": "custom-width",
+      "prompt": "Extra-wide slide EU 44 with 115mm width",
+      "tags": ["custom", "wide", "slide"],
+      "code": "/* JSCAD code for wide slide */"
+    },
+    {
+      "id": "specialty-post",
+      "prompt": "Post-surgery recovery sandal with extra-wide opening",
+      "tags": ["medical", "surgery", "recovery"],
+      "code": "/* JSCAD code for recovery shoe */"
+    },
+    {
+      "id": "specialty-pool",
+      "prompt": "Pool shoe with maximum drainage and anti-slip",
+      "tags": ["pool", "water", "drainage"],
+      "code": "/* JSCAD code for pool shoe */"
+    }
+  ]
+}
