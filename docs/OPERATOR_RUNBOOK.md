@@ -31,6 +31,20 @@ npm install
 
 ## Operator Paths
 
+### Agent Surfaces
+
+From the repo root:
+
+```bash
+python3 tools/print_os_cli.py manifest --format json
+python3 tools/print_os_cli.py job-payload --name "Bracket" --material PLA --width 40 --depth 20 --height 12
+python3 tools/print_os_cli.py api-get health --base-url http://127.0.0.1:8000
+```
+
+`.mcp.json` registers `tools/print_os_mcp.py` for MCP-capable agents. The server exposes read tools for the manifest, job payload generation, and local API inspection, plus `print_os_create_job` for explicit local job creation.
+
+Skill-aware agents should load `skills/print-os/SKILL.md` before operating the repo.
+
 ### FastAPI Backend
 
 ```bash
@@ -109,6 +123,8 @@ cd caedo-api
 source .venv/bin/activate
 python -m pytest -q
 ```
+
+The backend test suite includes agent-surface checks for `.mcp.json`, the CLI, the MCP self-test, and the public skill metadata.
 
 ```bash
 cd caedo-web
