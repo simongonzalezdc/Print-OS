@@ -31,6 +31,7 @@ Run the unified smoke test:
 bash scripts/smoke-test.sh
 ```
 
+For exact backend, Streamlit, web, 3D designer, security, and release checks, see [docs/OPERATOR_RUNBOOK.md](docs/OPERATOR_RUNBOOK.md).
+
 ---
 *Powered by GLM-4.7*
-
