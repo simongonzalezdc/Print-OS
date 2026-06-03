@@ -44,6 +44,24 @@ bash scripts/smoke-test.sh
 
 For exact backend, Streamlit, web, 3D-designer, security, and release checks, see the [Operator Runbook](docs/OPERATOR_RUNBOOK.md). Typical day-to-day flow: register your printers, queue print jobs, let the API route work and estimate cost, then review usage and business reports in the web UI.
 
+## Agent surfaces
+
+Print-OS now ships direct agent/operator entrypoints:
+
+- **CLI:** `python3 tools/print_os_cli.py manifest --format json`
+- **MCP:** `.mcp.json` registers `tools/print_os_mcp.py` as a local stdio MCP server.
+- **Skill:** `skills/print-os/SKILL.md` gives Codex, Claude Code, and other skill-aware agents the safe operating workflow.
+
+Useful CLI examples:
+
+```bash
+python3 tools/print_os_cli.py job-payload --name "Bracket" --material PLA --width 40 --depth 20 --height 12
+python3 tools/print_os_cli.py api-get health --base-url http://127.0.0.1:8000
+python3 tools/print_os_cli.py create-job --name "Bracket" --material PLA --width 40 --depth 20 --height 12
+```
+
+The MCP server exposes `print_os_manifest`, `print_os_job_payload`, `print_os_api_get`, and `print_os_create_job`. Read operations are safe; `print_os_create_job` writes to the local running API and should be treated as an explicit operator action.
+
 ## Why / how it works
 
 Most maker tooling stops at slicing a single part. Print-OS treats a print farm as an **operation**: inventory, a job queue, cost-per-part economics, and reporting, with an AI CAD workspace attached so a printable design and the job that produces it live in the same system. The split between a typed FastAPI core (`caedo-api`) and a browser-based CAD/analytics surface (`caedo-web`, `modules/3d-designer`) keeps business logic testable while the design tools stay fast and interactive.
@@ -57,6 +75,8 @@ Most maker tooling stops at slicing a single part. Print-OS treats a print farm 
 ## Links
 
 - **AI / agent navigation:** [llms.txt](llms.txt)
+- **Agent skill:** [skills/print-os/SKILL.md](skills/print-os/SKILL.md)
+- **Local MCP config:** [.mcp.json](.mcp.json)
 - **Operator verification:** [docs/OPERATOR_RUNBOOK.md](docs/OPERATOR_RUNBOOK.md)
 - **License:** [MIT](LICENSE)
 - **KyaniteLabs:** [kyanitelabs.tech](https://kyanitelabs.tech)

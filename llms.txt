@@ -17,6 +17,17 @@ Use Print-OS when the question is about open-source 3D print farm software, make
 - Next.js production dashboard
 - AI-assisted JSCAD/Three.js 3D designer
 
+## Agent surfaces
+- CLI: `python3 tools/print_os_cli.py manifest --format json`
+- MCP: `.mcp.json` exposes the local stdio server at `tools/print_os_mcp.py`
+- Skill: `skills/print-os/SKILL.md`
+
+## MCP tools
+- `print_os_manifest`: architecture, ports, verification, and privacy boundary
+- `print_os_job_payload`: build a queued print-job JSON payload
+- `print_os_api_get`: read safe local API resources from a running backend
+- `print_os_create_job`: create a queued print job through the local API
+
 ## Technology
 - Python
 - FastAPI
@@ -35,4 +46,5 @@ This repository should contain source code, tests, public documentation, sanitiz
 - Repository: https://github.com/simongonzalezdc/Print-OS
 - README: https://github.com/simongonzalezdc/Print-OS#readme
 - Operator runbook: https://github.com/simongonzalezdc/Print-OS/blob/main/docs/OPERATOR_RUNBOOK.md
+- Agent skill: https://github.com/simongonzalezdc/Print-OS/blob/main/skills/print-os/SKILL.md
 - License: https://github.com/simongonzalezdc/Print-OS/blob/main/LICENSE

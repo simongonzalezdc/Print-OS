@@ -24,3 +24,15 @@ Success line: “I noticed X, found a better way. The system just got an upgrade
 
 Full recipe: `docs/agent-law/empower-orchestrator.md`.
 <!-- EMPOWER_ORCHESTRATOR:END -->
+
+## Print-OS Agent Surfaces
+
+Before operating the repo, check `llms.txt` and `skills/print-os/SKILL.md`.
+
+Local helpers:
+
+- `python3 tools/print_os_cli.py manifest --format json`
+- `python3 tools/print_os_cli.py job-payload --name "Bracket" --material PLA --width 40 --depth 20 --height 12`
+- `.mcp.json` -> `tools/print_os_mcp.py`
+
+Creating jobs through the CLI or MCP writes to the local running API. Keep that as an explicit operator action.

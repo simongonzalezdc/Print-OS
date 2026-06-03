@@ -1,0 +1,7 @@
+interface:
+  display_name: "Print-OS"
+  short_description: "Operate local print-farm queues and AI CAD"
+  default_prompt: "Use $print-os to help me inspect or operate my local Print-OS print farm safely."
+
+policy:
+  allow_implicit_invocation: true

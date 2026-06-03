@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "print-os": {
+      "command": "python3",
+      "args": ["tools/print_os_mcp.py"]
+    }
+  }
+}
