@@ -1,5 +1,6 @@
 import sys
 import os
+from contextlib import asynccontextmanager
 
 # Add the parent directory to sys.path to allow importing caedoapi
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -8,14 +9,30 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from api.routes import business, printers, jobs, ai, projects, queue, ws, ai_memory, system, inventory
+from caedoapi.db import init_db
 
-app = FastAPI(title="CAEDO API", version="1.0.0")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Apply local SQLite migrations before API routes touch the database."""
+    init_db()
+    yield
+
+
+app = FastAPI(title="CAEDO API", version="1.0.0", lifespan=lifespan)
 
 # CORS configuration for the Next.js frontend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:3001",
         "http://localhost:3002",
+        "http://localhost:4182",
+        "http://127.0.0.1:3000",
+        "http://127.0.0.1:3001",
+        "http://127.0.0.1:3002",
+        "http://127.0.0.1:4182",
         "https://caedo.app",  # Production domain
     ],
     allow_credentials=True,

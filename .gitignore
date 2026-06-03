@@ -13,8 +13,8 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+/lib/
+/lib64/
 parts/
 sdist/
 var/
@@ -41,8 +41,15 @@ Thumbs.db
 
 # Node
 node_modules/
+.next/
 npm-debug.log
 yarn-error.log
+
+# Runtime databases
+farm.db
+farm.db-*
+*.sqlite
+*.sqlite3
 
 # Environment
 .env
@@ -57,3 +64,6 @@ yarn-error.log
 *.pfx
 id_rsa
 id_ed25519
+
+# Local agent workspace
+.omx/

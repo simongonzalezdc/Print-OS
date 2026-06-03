@@ -71,7 +71,7 @@ function EditorContent() {
   };
 
   return (
-    <div className="h-screen w-screen bg-background text-foreground overflow-hidden selection:bg-primary/30 relative">
+    <div className="h-full w-full bg-background text-foreground overflow-hidden selection:bg-primary/30 relative">
       {/* Full Canvas Viewport (Maximized) */}
       <div className="absolute inset-0">
         <ErrorBoundary fallback={<CanvasError />}>
@@ -306,7 +306,7 @@ function EditorContent() {
 
       {/* Floating Dock Toolbar (Bottom Center) */}
       <motion.div
-        className="absolute bottom-6 left-1/2 z-50 pointer-events-auto"
+        className="absolute bottom-24 left-1/2 z-50 pointer-events-auto"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, type: 'spring', damping: 20 }}
@@ -391,7 +391,7 @@ function EditorContent() {
 
       {/* Floating Status HUD (Bottom Left) */}
       <motion.div
-        className="absolute bottom-6 left-6 z-40 pointer-events-none"
+        className="absolute bottom-24 left-6 z-40 pointer-events-none"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.5, type: 'spring', damping: 20 }}
