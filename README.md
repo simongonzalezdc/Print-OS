@@ -31,7 +31,7 @@ PYTHONPATH=. python3 api/main.py
 # 3. In a second terminal, start the frontend (Next.js)
 cd caedo-web
 npm install
-npm run dev   # serves on http://localhost:3002 by default
+PORT=3002 npm run dev   # http://localhost:3002 (the port the smoke test checks)
 ```
 
 ## Usage
