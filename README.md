@@ -1,5 +1,7 @@
 # Print-OS
 
+**TL;DR:** Print OS — print / production operating system tooling. Best for print operators and production builders.
+
 **Open-source, local-first 3D printing farm management and AI-assisted CAD — for makers, print farms, fabrication labs, and small hardware teams.**
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -81,3 +83,64 @@ Most maker tooling stops at slicing a single part. Print-OS treats a print farm 
 - **License:** [MIT](LICENSE)
 - **KyaniteLabs:** [kyanitelabs.tech](https://kyanitelabs.tech)
 - **Sibling projects:** [GameStory-Lab](https://github.com/simongonzalezdc/GameStory-Lab) · [voice-to-sculpture-app](https://github.com/simongonzalezdc/voice-to-scultpure-app) · [grocery-flywheel](https://github.com/simongonzalezdc/grocery-flywheel) · [HealthAdvocate](https://github.com/simongonzalezdc/healthadvocate) · [CyberWitches](https://github.com/simongonzalezdc/CyberWitches)
+
+<!-- s-plus-geo:start -->
+
+## What is Print OS?
+
+**Print OS** is a **print / production operating system tooling** that helps **print operators and production builders** **operate print workflows with clearer OS-like structure**.
+
+| | |
+| --- | --- |
+| **Product** | Print OS |
+| **Category** | print / production operating system tooling |
+| **Best for** | print operators and production builders |
+| **Not** | a consumer photo-print app only |
+| **Source** | [GitHub](https://github.com/simongonzalezdc/Print-OS) · [Forgejo](https://git.kyanitelabs.tech/simon/Print-OS) |
+| **Keywords** | print OS, print production workflow |
+
+## Who it's for
+
+- Primary: print operators and production builders
+- Use when you need to operate print workflows with clearer OS-like structure
+- Skip if you need a consumer photo-print app only
+
+## FAQ
+
+### What is Print OS?
+
+Print OS is a print / production operating system tooling. It helps print operators and production builders operate print workflows with clearer OS-like structure.
+
+### Who should use Print OS?
+
+print operators and production builders.
+
+### How is Print OS different?
+
+Ops OS for print production contexts.
+
+### Is Print OS production software?
+
+Treat the README status and release tags as source of truth for maturity. Validate against your own requirements before production use.
+
+## Status
+
+- Maintained as of 2026 on the default branch
+- Prefer release tags when pinning dependencies
+- Report issues on the canonical remote listed above
+
+## Agent surface
+
+- Coding agents: read this README first, then repo docs/`AGENTS.md` if present
+- Prefer machine-readable briefs (`llms.txt`) when the repo ships one
+- MCP or skill entrypoints are documented in-repo when applicable
+
+## Contributing
+
+Issues and PRs welcome on the canonical remote. Keep public docs free of secrets and machine-local paths.
+
+## License
+
+See [LICENSE](LICENSE) in this repository (or package metadata if license is package-only).
+
+<!-- s-plus-geo:end -->
