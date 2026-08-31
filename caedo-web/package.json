@@ -16,10 +16,10 @@
     "validate": "node scripts/validate-production.js"
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "^3.0.81",
-    "@ai-sdk/google": "^3.0.80",
-    "@ai-sdk/openai": "^3.0.67",
-    "@ai-sdk/react": "^3.0.196",
+    "@ai-sdk/anthropic": "^4.0.45",
+    "@ai-sdk/google": "^4.0.57",
+    "@ai-sdk/openai": "^4.0.51",
+    "@ai-sdk/react": "^4.0.87",
     "@jscad/modeling": "^2.12.6",
     "@react-three/csg": "^4.0.0",
     "@react-three/drei": "^10.7.7",
@@ -27,7 +27,7 @@
     "@types/recharts": "^1.8.29",
     "@upstash/ratelimit": "^2.0.7",
     "@upstash/redis": "^1.36.0",
-    "ai": "^6.0.194",
+    "ai": "^7.0.84",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.24",
     "idb-keyval": "^6.2.1",
