@@ -20,7 +20,7 @@
     "@ai-sdk/google": "^3.0.80",
     "@ai-sdk/openai": "^3.0.67",
     "@ai-sdk/react": "^3.0.196",
-    "@jscad/modeling": "^2.12.6",
+    "@jscad/modeling": "^2.13.0",
     "@react-three/csg": "^4.0.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.4.0",
